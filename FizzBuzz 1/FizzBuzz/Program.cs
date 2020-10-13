@@ -8,7 +8,7 @@ namespace FizzBuzz
         {
             for (int i = 1; i <= 260; i++)
             {
-                String[] outputArr = new String[5];
+                var outputArr = new String[5];
 
                 if (i % 3 == 0)
                 {
@@ -41,7 +41,7 @@ namespace FizzBuzz
                     Array.Reverse(outputArr);
                 }
 
-                String outputString = String.Concat(outputArr);
+                var outputString = String.Concat(outputArr);
 
                 if (String.IsNullOrEmpty(outputString))
                 {
