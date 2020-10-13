@@ -1,6 +1,5 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
-using System;
-using System.Numerics;
+﻿using System;
+using System.Text;
 
 namespace FizzBuzz
 {
@@ -10,26 +9,21 @@ namespace FizzBuzz
         {
             for (int i = 1; i <= 100; i++)
             {
-                String output = new String("");
-
-                for (int j = 1; j < 3; j++)
-                {
-                    int k = 0;
-                }
+                StringBuilder output = new StringBuilder(16);
 
                 if (i % 3 == 0)
                 {
-                    output += "Fizz";
+                    output.Append("Fizz");
                 }
 
                 if (i % 5 == 0)
                 {
-                    output += "Buzz";
+                    output.Append("Buzz");
                 }
 
-                if (output.Equals(""))
+                if (output.Length == 0)
                 {
-                    output = i.ToString();
+                    output.Append(i.ToString());
                 }
 
                 Console.WriteLine(output);
