@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace FizzBuzz
 {
@@ -7,26 +6,49 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i <= 100; i++)
+            for (int i = 1; i <= 260; i++)
             {
-                StringBuilder output = new StringBuilder(16);
+                var outputArr = new String[5];
 
                 if (i % 3 == 0)
                 {
-                    output.Append("Fizz");
+                    outputArr[0] = "Fizz";
                 }
 
                 if (i % 5 == 0)
                 {
-                    output.Append("Buzz");
+                    outputArr[3] = "Buzz";
                 }
 
-                if (output.Length == 0)
+                if (i % 7 == 0)
                 {
-                    output.Append(i.ToString());
+                    outputArr[4] = "Bang";
                 }
 
-                Console.WriteLine(output);
+                if (i % 11 == 0)
+                {
+                    outputArr = new String[5];
+                    outputArr[2] = "Bong";
+                }
+
+                if (i % 13 == 0)
+                {
+                    outputArr[1] = "Fezz";
+                }
+
+                if (i % 17 == 0)
+                {
+                    Array.Reverse(outputArr);
+                }
+
+                var outputString = String.Concat(outputArr);
+
+                if (String.IsNullOrEmpty(outputString))
+                {
+                    outputString = i.ToString();
+                }
+
+                Console.WriteLine(outputString);
             }
         }
     }
