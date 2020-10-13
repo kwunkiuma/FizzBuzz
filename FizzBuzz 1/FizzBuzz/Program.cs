@@ -12,6 +12,11 @@ namespace FizzBuzz
             {
                 String output = new String("");
 
+                for (int j = 1; j < 3; j++)
+                {
+                    int k = 0;
+                }
+
                 if (i % 3 == 0)
                 {
                     output += "Fizz";
