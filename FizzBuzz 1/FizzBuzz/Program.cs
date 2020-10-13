@@ -26,6 +26,11 @@ namespace FizzBuzz
                     output.Append("Bang");
                 }
 
+                if (i % 11 == 0)
+                {
+                    output = new StringBuilder("Bong", 16); // Not sure if there's a way to set the content
+                }
+
                 if (output.Length == 0)
                 {
                     output.Append(i.ToString());
