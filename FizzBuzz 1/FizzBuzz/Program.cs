@@ -21,6 +21,11 @@ namespace FizzBuzz
                     output.Append("Buzz");
                 }
 
+                if (i % 7 == 0)
+                {
+                    output.Append("Bang");
+                }
+
                 if (output.Length == 0)
                 {
                     output.Append(i.ToString());
