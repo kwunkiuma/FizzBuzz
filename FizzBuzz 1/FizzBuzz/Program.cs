@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 
 namespace FizzBuzz
@@ -9,55 +10,47 @@ namespace FizzBuzz
         {
             for (int i = 1; i <= 260; i++)
             {
-                StringBuilder output = new StringBuilder(16);
+                String[] outputArr = new String[5];
 
                 if (i % 3 == 0)
                 {
-                    output.AppendLine("Fizz");
+                    outputArr[0] = "Fizz";
                 }
 
                 if (i % 5 == 0)
                 {
-                    output.AppendLine("Buzz");
+                    outputArr[3] = "Buzz";
                 }
 
                 if (i % 7 == 0)
                 {
-                    output.AppendLine("Bang");
+                    outputArr[4] = "Bang";
                 }
 
                 if (i % 11 == 0)
                 {
-                    output = new StringBuilder("Bong", 16); // Not sure if there's a way to set the content
+                    outputArr = new String[5]; // Tried the Initialize() method but wasn't working
+                    outputArr[2] = "Bong";
                 }
 
                 if (i % 13 == 0)
                 {
-                    int bpos = output.ToString().IndexOf("B");
-                    if (bpos == -1)
-                    {
-                        bpos = output.Length;
-                    }
-                    output.Insert(bpos, "Fezz\r\n");
+                    outputArr[1] = "Fezz";
                 }
 
                 if (i % 17 == 0)
                 {
-                    StringBuilder newOutput = new StringBuilder(16);
-                    string[] substrings = output.ToString().Split("\r\n");
-                    foreach (string s in substrings)
-                    {
-                        newOutput.Insert(0, s);
-                    }
-                    output = newOutput;
+                    Array.Reverse(outputArr);
                 }
 
-                if (output.Length == 0)
+                String outputString = String.Concat(outputArr);
+
+                if (String.IsNullOrEmpty(outputString))
                 {
-                    output.Append(i.ToString());
+                    outputString = i.ToString();
                 }
 
-                Console.WriteLine(output.ToString().Replace("\r\n", ""));
+                Console.WriteLine(outputString);
             }
         }
     }
