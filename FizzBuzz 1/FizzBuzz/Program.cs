@@ -6,7 +6,20 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i <= 260; i++)
+            int max = -1;
+            while (max < 1)
+            {
+                Console.Write("Enter a number to go up to: ");
+                try
+                {
+                    max = Int32.Parse(Console.ReadLine());
+                } catch (Exception e)
+                {
+
+                }
+            }
+
+            for (int i = 1; i <= max; i++)
             {
                 var outputArr = new String[5];
 
