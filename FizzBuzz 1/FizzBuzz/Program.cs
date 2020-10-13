@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
 
 namespace FizzBuzz
 {
@@ -29,7 +27,7 @@ namespace FizzBuzz
 
                 if (i % 11 == 0)
                 {
-                    outputArr = new String[5]; // Tried the Initialize() method but wasn't working
+                    outputArr = new String[5];
                     outputArr[2] = "Bong";
                 }
 
