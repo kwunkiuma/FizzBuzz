@@ -6,7 +6,25 @@ namespace FizzBuzz
 {
     class Program
     {
-        static Boolean ReadYN(string prompt)
+        static int GetMax()
+        {
+            int max = -1;
+
+            while (max < 1) {
+                Console.Write("Enter a number to go up to: ");
+                try
+                {
+                    max = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                }
+            }
+
+            return max;
+        }
+
+        static bool ReadYN(string prompt)
         {
             string answer = "";
             do
@@ -26,16 +44,14 @@ namespace FizzBuzz
 
         static bool[] GetRules()
         {
-            var rules = new bool[6];
-
-            rules[0] = ReadYN("Enable Fizz if mod 3? (y/n): ");
-            rules[1] = ReadYN("Enable Buzz if mod 5? (y/n): ");
-            rules[2] = ReadYN("Enable Bang if mod 7? (y/n): ");
-            rules[3] = ReadYN("Enable Bong if mod 11? (y/n): ");
-            rules[4] = ReadYN("Enable Fezz if mod 13? (y/n): ");
-            rules[5] = ReadYN("Enable reverse if mod 17? (y/n): ");
-
-            return rules;
+            return new bool[] {
+                ReadYN("Enable Fizz if mod 3? (y/n): "),
+                ReadYN("Enable Buzz if mod 5? (y/n): "),
+                ReadYN("Enable Bang if mod 7? (y/n): "),
+                ReadYN("Enable Bong if mod 11? (y/n): "),
+                ReadYN("Enable Fezz if mod 13? (y/n): "),
+                ReadYN("Enable reverse if mod 17? (y/n): ")
+            };
         }
 
         static string ApplyRules(bool[] rules, int i)
@@ -84,18 +100,8 @@ namespace FizzBuzz
 
         static void Main(string[] args)
         {
-            int max = -1;
-            while (max < 1)
-            {
-                Console.Write("Enter a number to go up to: ");
-                try
-                {
-                    max = Int32.Parse(Console.ReadLine());
-                } catch
-                {
-                }
-            }
 
+            var max = GetMax();
             var rules = GetRules();
 
             for (int i = 1; i <= max; i++)
